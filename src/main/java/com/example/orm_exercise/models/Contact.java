@@ -1,5 +1,6 @@
 package com.example.orm_exercise.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Contact {
     private String phoneNumber;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "contact",  orphanRemoval = true)
+    @JsonManagedReference
     private List<Address> addresses;
 
 

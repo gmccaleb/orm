@@ -1,5 +1,6 @@
 package com.example.orm_exercise.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -17,7 +18,7 @@ public class Address {
     private String zipCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonBackReference
     private Contact contact;
 
     public int getId() {
